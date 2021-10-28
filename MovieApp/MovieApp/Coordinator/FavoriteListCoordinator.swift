@@ -34,7 +34,7 @@ class FavoritesListCoordinator: NavigationCoordinator<FavoritesListRoute> {
             return .push(viewController, animation: .none)
      
       case .movieDetail(let omdbId):
-            let coordinator = CharacterDetailsCoordinator(rootViewController: rootViewController, omdbId: omdbId)
+            let coordinator = MovieDetailsCoordinator(rootViewController: rootViewController, omdbId: omdbId)
             addChild(coordinator)
             return .none()
         case.dismiss :

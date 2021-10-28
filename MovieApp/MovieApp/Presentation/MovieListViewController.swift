@@ -52,42 +52,29 @@ class MovieListViewController: UIViewController, BindableType, UICollectionViewD
     
     func bindViewModel() {
         //ilk servis isteğini attık
-        movieListView.searchButton.rx.tapGesture().when(.recognized).subscribe(onNext: { [self] gesture in
-            print("searchButton tapped")
-            viewModel.fetchMovieList(searchText: movieListView.searchTextField.text!, page: 1)
+        movieListView.movieListSearchButton.rx.tapGesture().when(.recognized).subscribe(onNext:{ [self] gesture in
+            
+            viewModel.fetchMovieList(searchText: movieListView.movieListSearchTextField.text! , page: 1)
+            
         }).disposed(by: disposeBag)
         
-        viewModel.output.movieListResponse.subscribe(onNext: {[self] response in
-            totalPageCount = response.getTotalPageNumber()
-            self.movieList.append(contentsOf: response.movies!)
-            self.viewModel.output.movieList.onNext(self.movieList)
-            self.isLoading = false
-        }).disposed(by:disposeBag)
-
-        // geleni ekrana bastık
-        viewModel.output.movieList.bind(to: movieListView.movieListCollectionView.rx.items(cellIdentifier: cellIdentifier,cellType: MovieListCell.self)) { [self] _, model, cell in
+        viewModel.output.movieList.bind(to: movieListView.movieListCollectionView.rx.items(cellIdentifier:cellIdentifier , cellType: MovieListCell.self)){[self] _, model, cell in
             let urlString = model.poster!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            cell.movieListImageView.kf.setImage(with: URL(string: urlString!))
-            cell.movieListNameLabel.text = model.title
-            cell.movieListYearLabel.text = model.year
-            cell.addFavoriteButton.rx.tapGesture().when(.recognized).subscribe(onNext: { gesture in
-            print("favoriteButton tapped")
+            cell.movieListCellImageView.kf.setImage(with: URL(string: urlString!))
+            cell.movieListCellNameLabel.text = model.title
+            cell.movieListCellYearLabel.text = model.year
+            cell.movieListCellAddFavoriteButton.rx.tapGesture().when(.recognized).subscribe(onNext: { gesture in
                 
-            }).disposed(by: cell.disposeBag)
+                
+            }).disposed(by: disposeBag)
+            
         }.disposed(by: disposeBag)
-        
+
         movieListView.movieListCollectionView.rx.modelSelected(Movie.self).bind(to: viewModel.input.selectedMovie).disposed(by: disposeBag)
      
     }
      
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if !isLoading && nextPageNumber <= totalPageCount {
-            if (indexPath.row == movieList.count - 1) && (movieList.count % 10 == 0) {
-                nextPageNumber += 1
-                viewModel.fetchMovieList(searchText: movieListView.searchTextField.text!, page: nextPageNumber)
-                isLoading = true
-            }
-        }
     }
  
     func registerCollectionView() {

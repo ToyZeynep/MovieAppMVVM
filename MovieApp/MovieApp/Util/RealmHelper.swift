@@ -17,16 +17,16 @@ class RealmHelper {
         database = try! Realm()
     }
     
-    func addCharacterToFavorites(characterDetails: CharacterDetails) {
+    func addMovieToFavorites(movie: Movie) {
         try! database.write {
             //database.add(characterDetails)
-            database.create(CharacterDetails.self, value: characterDetails)
+            database.create(Movie.self, value: movie)
             
         }
     }
     
-    func fetchFavoriteList() -> Results<CharacterDetails> {
-        let object = database.objects(CharacterDetails.self)
+    func fetchFavoriteList() -> Results<Movie> {
+        let object = database.objects(Movie.self)
         return object;
     }
     
@@ -36,9 +36,9 @@ class RealmHelper {
         }
     }
     
-    func deleteFromDb(characterDetails: CharacterDetails)   {
+    func deleteFromDb(movie : Movie )   {
         try! database.write {
-            database.delete(characterDetails)
+            database.delete(movie)
         }
     }
 }

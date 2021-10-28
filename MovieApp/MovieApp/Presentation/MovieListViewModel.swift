@@ -21,15 +21,19 @@ protocol MovieListViewModelOutput {
     var movieList: PublishSubject<[Movie]> { get }
 }
 
+protocol MovieListViewModelStoredProperties {
+    var movieListUseCase : MovieListUseCase { get }
+    
+}
 protocol MovieListViewModel{
     var input: MovieListViewModelInput { get }
     var output: MovieListViewModelOutput { get }
-    
+    var storedProperties : MovieListViewModelStoredProperties { get }
     func fetchMovieList(searchText: String , page : Int)
-    
 }
 
-extension MovieListViewModel where Self:  MovieListViewModelInput & MovieListViewModelOutput {
+extension MovieListViewModel where Self:  MovieListViewModelInput & MovieListViewModelOutput & MovieListViewModelStoredProperties {
     var input: MovieListViewModelInput { return self }
     var output: MovieListViewModelOutput { return self }
+    var storedProperties : MovieListViewModelStoredProperties { return self  }
 }

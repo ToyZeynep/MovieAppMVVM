@@ -33,7 +33,7 @@ extension MovieListView {
     func setSearchButton (){
         movieListContentView.addSubview(movieListSearchButton)
         movieListSearchButton.setTop(equalTo: movieListContentView.topAnchor, constant: 10)
-        movieListSearchButton.setLeft(equalTo: searchTextField.rightAnchor , constant: 10)
+        movieListSearchButton.setLeft(equalTo: movieListSearchTextField.rightAnchor , constant: 10)
         movieListSearchButton.setHeight(height: 50)
         movieListSearchButton.setWidth(width: 50)
     }
@@ -48,7 +48,7 @@ extension MovieListView {
     }
     func setUpMovieListToolBarLineView() {
         movieListContentView.addSubview(movieListToolBarLineView)
-        movieListToolBarLineView.setTop(equalTo: searchTextField.bottomAnchor, constant: 5)
+        movieListToolBarLineView.setTop(equalTo:  movieListSearchTextField.bottomAnchor, constant: 5)
         movieListToolBarLineView.setLeft(equalTo: movieListContentView.leftAnchor)
         movieListToolBarLineView.setRight(equalTo: movieListContentView.rightAnchor)
         movieListToolBarLineView.setHeight(height: 3)

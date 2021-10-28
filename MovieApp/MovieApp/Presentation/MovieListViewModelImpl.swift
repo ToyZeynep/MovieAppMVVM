@@ -10,10 +10,10 @@ import RxCocoa
 import XCoordinator
 import Action
 
-class MovieListViewModelImpl: MovieListViewModel, MovieListViewModelInput, MovieListViewModelOutput {
+class MovieListViewModelImpl: MovieListViewModel, MovieListViewModelInput, MovieListViewModelOutput , MovieListViewModelStoredProperties {
+
     
-    
-    
+   
     
     let disposeBag = DisposeBag()
     
@@ -36,17 +36,14 @@ class MovieListViewModelImpl: MovieListViewModel, MovieListViewModelInput, Movie
     // MARK: -Stored properties-
     
     private let router: UnownedRouter<MovieListRoute>
-    private let movieListUseCase: MovieListUseCase
+    internal let movieListUseCase = MovieListUseCase()
     
     // MARK: -Initialization-
     
     init(router: UnownedRouter<MovieListRoute>) {
         self.router = router
     }
-    
-    
-    
-    
+
     func fetchMovieList(searchText: String , page: Int ) {
         var params: [String: Any] = [String: Any]()
         params["page"] = page

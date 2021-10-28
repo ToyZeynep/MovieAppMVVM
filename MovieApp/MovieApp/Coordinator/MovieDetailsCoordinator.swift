@@ -11,19 +11,19 @@ import RxSwift
 import RxCocoa
 import XCoordinator
 
-enum CharacterDetailsRoute: Route {
+enum MovieDetailsRoute: Route {
     
     case movieDetail(omdbId : String)
     case favoriteList
 }
 
-class CharacterDetailsCoordinator: NavigationCoordinator<CharacterDetailsRoute> {
+class MovieDetailsCoordinator: NavigationCoordinator<MovieDetailsRoute> {
     
     init(rootViewController: UINavigationController , omdbId : String) {
         super.init(rootViewController: rootViewController , initialRoute: .movieDetail(omdbId : String))
     }
     
-    override func prepareTransition(for route: CharacterDetailsRoute) -> NavigationTransition {
+    override func prepareTransition(for route: MovieDetailsRoute) -> NavigationTransition {
         switch route {
  
         case .movieDetail(omdbId: String):
