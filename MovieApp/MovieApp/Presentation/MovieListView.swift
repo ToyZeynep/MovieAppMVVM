@@ -16,7 +16,7 @@ class MovieListView : UIView {
         return view
     }()
     
-    lazy var searchTextField : UITextField = {
+    lazy var movieListSearchTextField : UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .white
         textField.placeholder = "enter movie name"
@@ -34,7 +34,7 @@ class MovieListView : UIView {
         return textField
     }()
     
-    lazy var searchButton : UIButton = {
+    lazy var movieListSearchButton : UIButton = {
         let image = UIImage(named: "search")
         var button = UIButton()
         button.setImage(image, for: .normal)
@@ -52,7 +52,7 @@ class MovieListView : UIView {
         return button
     }()
     
-    lazy var favoritesButton : UIButton = {
+    lazy var movieListFavoritesButton : UIButton = {
         let image = UIImage(named: "like")
         var button = UIButton()
         button.setImage(image, for: .normal)

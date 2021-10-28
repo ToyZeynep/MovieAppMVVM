@@ -22,27 +22,28 @@ extension MovieListView {
         setUpMovieListToolBarLineView()
         setMovieListCollectionView()
     }
+    
     func setSearchTextField () {
-        movieListContentView.addSubview(searchTextField)
-        searchTextField.setTop(equalTo: movieListContentView.topAnchor, constant: 10)
-        searchTextField.setLeft(equalTo: movieListContentView.leftAnchor, constant: 5)
-        searchTextField.setHeight(height: 50)
+        movieListContentView.addSubview(movieListSearchTextField)
+        movieListSearchTextField.setTop(equalTo: movieListContentView.topAnchor, constant: 10)
+        movieListSearchTextField.setLeft(equalTo: movieListContentView.leftAnchor, constant: 5)
+        movieListSearchTextField.setHeight(height: 50)
     }
     
     func setSearchButton (){
-        movieListContentView.addSubview(searchButton)
-        searchButton.setTop(equalTo: movieListContentView.topAnchor, constant: 10)
-        searchButton.setLeft(equalTo: searchTextField.rightAnchor , constant: 10)
-        searchButton.setHeight(height: 50)
-        searchButton.setWidth(width: 50)
+        movieListContentView.addSubview(movieListSearchButton)
+        movieListSearchButton.setTop(equalTo: movieListContentView.topAnchor, constant: 10)
+        movieListSearchButton.setLeft(equalTo: searchTextField.rightAnchor , constant: 10)
+        movieListSearchButton.setHeight(height: 50)
+        movieListSearchButton.setWidth(width: 50)
     }
     func setFavoritesButton (){
-        movieListContentView.addSubview(favoritesButton)
-        favoritesButton.setTop(equalTo: movieListContentView.topAnchor, constant: 10)
-        favoritesButton.setLeft(equalTo: searchButton.rightAnchor, constant: 10)
-        favoritesButton.setRight(equalTo: movieListContentView.rightAnchor, constant: -10)
-        favoritesButton.setHeight(height: 50)
-        favoritesButton.setWidth(width: 50)
+        movieListContentView.addSubview(movieListFavoritesButton)
+        movieListFavoritesButton.setTop(equalTo: movieListContentView.topAnchor, constant: 10)
+        movieListFavoritesButton.setLeft(equalTo: movieListSearchButton.rightAnchor, constant: 10)
+        movieListFavoritesButton.setRight(equalTo: movieListContentView.rightAnchor, constant: -10)
+        movieListFavoritesButton.setHeight(height: 50)
+        movieListFavoritesButton.setWidth(width: 50)
         
     }
     func setUpMovieListToolBarLineView() {
@@ -52,6 +53,7 @@ extension MovieListView {
         movieListToolBarLineView.setRight(equalTo: movieListContentView.rightAnchor)
         movieListToolBarLineView.setHeight(height: 3)
     }
+    
     func setMovieListCollectionView()  {
         movieListContentView.addSubview(movieListCollectionView)
         movieListCollectionView.setTop(equalTo: movieListToolBarLineView.bottomAnchor, constant: 5)

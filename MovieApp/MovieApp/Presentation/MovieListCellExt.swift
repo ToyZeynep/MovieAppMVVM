@@ -21,32 +21,32 @@ extension MovieListCell {
     }
     
     func setImageView() {
-        movieListCellContentView.addSubview(movieListImageView)
-        movieListImageView.setTop(equalTo: movieListCellContentView.topAnchor)
-        movieListImageView.setRight(equalTo: movieListCellContentView.rightAnchor)
-        movieListImageView.setLeft(equalTo: movieListCellContentView.leftAnchor)
+        movieListCellContentView.addSubview(movieListCellImageView)
+        movieListCellImageView.setTop(equalTo: movieListCellContentView.topAnchor)
+        movieListCellImageView.setRight(equalTo: movieListCellContentView.rightAnchor)
+        movieListCellImageView.setLeft(equalTo: movieListCellContentView.leftAnchor)
     }
     
     func setMovieNameLabel (){
-        movieListCellContentView.addSubview(movieListNameLabel)
-        movieListNameLabel.setTop(equalTo: movieListImageView.bottomAnchor, constant: 10)
-        movieListNameLabel.setRight(equalTo: movieListCellContentView.rightAnchor, constant: -10)
-        movieListNameLabel.setLeft(equalTo: movieListCellContentView.leftAnchor, constant: 10)
+        movieListCellContentView.addSubview(movieListCellNameLabel)
+        movieListCellNameLabel.setTop(equalTo: movieListCellImageView.bottomAnchor, constant: 10)
+        movieListCellNameLabel.setRight(equalTo: movieListCellContentView.rightAnchor, constant: -10)
+        movieListCellNameLabel.setLeft(equalTo: movieListCellContentView.leftAnchor, constant: 10)
     }
     
     func setMovieYearLabel (){
-        movieListCellContentView.addSubview(movieListYearLabel)
-        movieListYearLabel.setTop(equalTo:movieListNameLabel.bottomAnchor , constant: 10)
-        movieListYearLabel.setBottom(equalTo: movieListCellContentView.bottomAnchor, constant: -10)
-        movieListYearLabel.setRight(equalTo: movieListCellContentView.rightAnchor ,   constant: -10)
-        movieListYearLabel.setLeft(equalTo: movieListCellContentView.leftAnchor, constant: 10)
+        movieListCellContentView.addSubview(movieListCellYearLabel)
+        movieListCellYearLabel.setTop(equalTo:movieListCellNameLabel.bottomAnchor , constant: 10)
+        movieListCellYearLabel.setBottom(equalTo: movieListCellContentView.bottomAnchor, constant: -10)
+        movieListCellYearLabel.setRight(equalTo: movieListCellContentView.rightAnchor ,   constant: -10)
+        movieListCellYearLabel.setLeft(equalTo: movieListCellContentView.leftAnchor, constant: 10)
     }
     
     func setAddFavoriteButton()  {
-        movieListCellContentView.addSubview(addFavoriteButton)
-        addFavoriteButton.setTop(equalTo: movieListImageView.topAnchor, constant: 10)
-        addFavoriteButton.setRight(equalTo: movieListCellContentView.rightAnchor, constant: -10)
-        addFavoriteButton.setWidth(width: 30)
-        addFavoriteButton.setHeight(height: 30)
+        movieListCellContentView.addSubview(movieListCellAddFavoriteButton)
+        movieListCellAddFavoriteButton.setTop(equalTo: movieListCellImageView.topAnchor, constant: 10)
+        movieListCellAddFavoriteButton.setRight(equalTo: movieListCellContentView.rightAnchor, constant: -10)
+        movieListCellAddFavoriteButton.setWidth(width: 30)
+        movieListCellAddFavoriteButton.setHeight(height: 30)
     }
 }

@@ -21,7 +21,7 @@ class MovieListCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var movieListImageView : UIImageView = {
+    lazy var movieListCellImageView : UIImageView = {
        
         let imageName = "harry.jpeg"
         let image = UIImage(named: imageName)
@@ -34,7 +34,7 @@ class MovieListCell: UICollectionViewCell {
       return imageView
     }()
     
-    lazy var movieListNameLabel : UILabel = {
+    lazy var movieListCellNameLabel : UILabel = {
         let label = UILabel()
         label.backgroundColor = .clear
         label.textColor = UIColor.black
@@ -47,7 +47,7 @@ class MovieListCell: UICollectionViewCell {
         
     } ()
     
-    lazy var movieListYearLabel : UILabel = {
+    lazy var movieListCellYearLabel : UILabel = {
         
         let label = UILabel()
         label.backgroundColor = .clear
@@ -59,7 +59,7 @@ class MovieListCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     } ()
-    lazy var addFavoriteButton: UIButton = {
+    lazy var movieListCellAddFavoriteButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "like"), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false

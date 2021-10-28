@@ -40,9 +40,8 @@ class MovieListViewModelImpl: MovieListViewModel, MovieListViewModelInput, Movie
     
     // MARK: -Initialization-
     
-    init(router: UnownedRouter<MovieListRoute>, movieListUseCase: MovieListUseCase) {
+    init(router: UnownedRouter<MovieListRoute>) {
         self.router = router
-        self.movieListUseCase = movieListUseCase
     }
     
     
