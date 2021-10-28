@@ -10,14 +10,14 @@ import Alamofire
 import RxSwift
 import RxCocoa
 
-protocol MovieDetailUseCaseType {
-    func getMovieDetails(params: [String: Any]) -> Observable<MovieDetailResponse>
+protocol MovieDetailsUseCaseType {
+    func getMovieDetails(params: [String: Any]) -> Observable<MovieDetailsResponse>
 }
 
 
-struct MovieDetailUseCase: MovieDetailUseCaseType {
+struct MovieDetailsUseCase: MovieDetailsUseCaseType {
    
-    func getMovieDetails(params: [String : Any]) -> Observable<MovieDetailResponse> {
+    func getMovieDetails(params: [String : Any]) -> Observable<MovieDetailsResponse> {
         return ApiClient.getMovieDetails(params: params)
     }
     

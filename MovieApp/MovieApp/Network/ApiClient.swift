@@ -15,7 +15,7 @@ class ApiClient {
         return request(ApiEndPoint.movieList(params: params))
     }
     
-    static func getMovieDetails(params: [String: Any]) -> Observable<MovieDetailResponse> {
+    static func getMovieDetails(params: [String: Any]) -> Observable<MovieDetailsResponse> {
         return request(ApiEndPoint.movieDetails(params: params))
     }
     

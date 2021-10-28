@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct MovieDetailResponse: Codable{
+struct MovieDetailsResponse: Codable{
     let title : String?
     let year : String?
     let rated : String?
