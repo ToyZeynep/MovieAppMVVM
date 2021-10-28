@@ -6,12 +6,13 @@
 //
 
 import Foundation
-struct Movie : Codable {
-    let title : String?
-    let year : String?
-    let imdbID : String?
-    let type : String?
-    let poster : String?
+import RealmSwift
+class Movie : Object ,Codable {
+    @objc dynamic var title : String?
+    @objc dynamic var year : String?
+    @objc dynamic var imdbID : String?
+    @objc dynamic var type : String?
+    @objc dynamic var poster : String?
 
     enum CodingKeys: String, CodingKey {
 
@@ -21,15 +22,4 @@ struct Movie : Codable {
         case type = "Type"
         case poster = "Poster"
     }
-
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        title = try values.decodeIfPresent(String.self, forKey: .title)
-        year = try values.decodeIfPresent(String.self, forKey: .year)
-        imdbID = try values.decodeIfPresent(String.self, forKey: .imdbID)
-        type = try values.decodeIfPresent(String.self, forKey: .type)
-        poster = try values.decodeIfPresent(String.self, forKey: .poster)
-    }
-    
-
 }
