@@ -41,13 +41,19 @@ class FavoritesListViewController : UIViewController, BindableType, UICollection
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-        favoritesListView.favoritesListCollectionView.reloadData()
+      //  navigationController?.setNavigationBarHidden(true, animated: animated)
+        let image = UIImage(named: "delete")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem?.imageInsets = UIEdgeInsets(top: 3, left: 3, bottom: -3, right: -3)
+        navigationController?.navigationBar.backgroundColor = UIColor(rgb: 0xF5F5F5)
     }
     
+    @objc func addTapped(){
+        self.deleteButtonProcesses()
+    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+      //  navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     func bindViewModel() {
@@ -58,6 +64,7 @@ class FavoritesListViewController : UIViewController, BindableType, UICollection
             cell.favoritesListCellImageView.kf.setImage(with: URL(string: urlString!))
             cell.favoritesListCellNameLabel.text = model.title
             cell.favoritesListCellYearLabel.text = model.year
+            
             cell.favoritesListCellDeleteFavoriteButton.addTapGesture{
                 RealmHelper.sharedInstance.deleteFromDb(movie: model)
                 self.viewModel.fetchFavoritesList()
@@ -66,9 +73,7 @@ class FavoritesListViewController : UIViewController, BindableType, UICollection
         favoritesListView.favoritesListCollectionView.rx.modelSelected(Movie.self)
             .bind(to: viewModel.input.selectedMovie).disposed(by: disposeBag)
         
-        favoritesListView.favoritesListDeleteButton.rx.tapGesture().when(.recognized).subscribe(onNext : { gesture in
-            self.deleteButtonProcesses()
-        }).disposed(by: disposeBag)
+    
 }
     func registerCollectionView() {
         favoritesListView.favoritesListCollectionView.delegate = self
@@ -76,11 +81,7 @@ class FavoritesListViewController : UIViewController, BindableType, UICollection
         favoritesListView.favoritesListCollectionView.collectionViewLayout = gridFlowLayout
     }
     
-    func gridButtonProcesses(){
-        self.favoritesListView.favoritesListCollectionView.collectionViewLayout = self.isGrid ? self.listFlowLayout : self.gridFlowLayout
-        self.favoritesListView.favoritesListGridButton.setImage( self.isGrid ? UIImage(named: "grid.png")?.withRenderingMode(.alwaysTemplate) : UIImage(named: "list.png")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        self.isGrid = !self.isGrid
-    }
+
     
     func deleteButtonProcesses(){
         RealmHelper.sharedInstance.deleteAllFromDatabase()

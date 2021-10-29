@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 extension MovieListView {
     func setUpMovieListContentView()  {
+        view.backgroundColor = UIColor(rgb: 0xF5F5F5)
         addSubview(movieListContentView)
         if #available(iOS 11.0, *) {
             movieListContentView.setTop(equalTo: safeAreaLayoutGuide.topAnchor)
@@ -16,42 +17,69 @@ extension MovieListView {
         movieListContentView.setLeft(equalTo: leftAnchor)
         movieListContentView.setRight(equalTo: rightAnchor)
         movieListContentView.setBottom(equalTo: bottomAnchor)
-        setSearchTextField()
-        setSearchButton ()
-        setFavoritesButton ()
+        
+        setUpToolbarView()
         setUpMovieListToolBarLineView()
         setMovieListCollectionView()
+        
+    }
+    
+    func setUpToolbarView() {
+        movieListContentView.addSubview(toolbarView)
+        toolbarView.setTop(equalTo: movieListContentView.topAnchor)
+        toolbarView.setLeft(equalTo: movieListContentView.leftAnchor)
+        toolbarView.setRight(equalTo: movieListContentView.rightAnchor)
+        toolbarView.setHeight(height: 40)
+        
+        setFavoritesButton ()
+        setSearchButton()
+        setSearchTextField()
+
+       
+        
     }
     
     func setSearchTextField () {
-        movieListContentView.addSubview(movieListSearchTextField)
-        movieListSearchTextField.setTop(equalTo: movieListContentView.topAnchor, constant: 10)
-        movieListSearchTextField.setLeft(equalTo: movieListContentView.leftAnchor, constant: 5)
-        movieListSearchTextField.setHeight(height: 50)
+        toolbarView.addSubview(movieListSearchTextField)
+        movieListSearchTextField.setTop(equalTo: toolbarView.topAnchor, constant: 5)
+        movieListSearchTextField.setLeft(equalTo: toolbarView.leftAnchor, constant: 10)
+        movieListSearchTextField.setBottom(equalTo: toolbarView.bottomAnchor, constant: -5)
+        movieListSearchTextField.setRight(equalTo: movieListSearchButton.leftAnchor, constant: -10)
+        movieListSearchTextField.setHeight(height: 30)
     }
     
     func setSearchButton (){
-        movieListContentView.addSubview(movieListSearchButton)
-        movieListSearchButton.setTop(equalTo: movieListContentView.topAnchor, constant: 10)
-        movieListSearchButton.setLeft(equalTo: movieListSearchTextField.rightAnchor , constant: 10)
-        movieListSearchButton.setHeight(height: 50)
-        movieListSearchButton.setWidth(width: 50)
+        toolbarView.addSubview(movieListSearchButton)
+        movieListSearchButton.setTop(equalTo: toolbarView.topAnchor, constant: 5)
+        movieListSearchButton.setRight(equalTo: movieListFavoritesButton.leftAnchor, constant: -10)
+        movieListSearchButton.setHeight(height: 30)
+        movieListSearchButton.setWidth(width: 30)
     }
     func setFavoritesButton (){
-        movieListContentView.addSubview(movieListFavoritesButton)
-        movieListFavoritesButton.setTop(equalTo: movieListContentView.topAnchor, constant: 10)
-        movieListFavoritesButton.setLeft(equalTo: movieListSearchButton.rightAnchor, constant: 10)
-        movieListFavoritesButton.setRight(equalTo: movieListContentView.rightAnchor, constant: -10)
-        movieListFavoritesButton.setHeight(height: 50)
-        movieListFavoritesButton.setWidth(width: 50)
+        toolbarView.addSubview(movieListFavoritesButton)
+        movieListFavoritesButton.setTop(equalTo: toolbarView.topAnchor, constant: 5)
+       // movieListFavoritesButton.setLeft(equalTo: movieListSearchButton.rightAnchor, constant: 10)
+        movieListFavoritesButton.setRight(equalTo: toolbarView.rightAnchor, constant: -10)
+        movieListFavoritesButton.setHeight(height: 30)
+        movieListFavoritesButton.setWidth(width: 30)
         
     }
+   /* func setGridButton (){
+        movieListContentView.addSubview(movieListGridButton)
+        movieListGridButton.setTop(equalTo: movieListContentView.topAnchor, constant: 10)
+        movieListGridButton.setLeft(equalTo: movieListFavoritesButton.rightAnchor, constant: 10)
+        movieListGridButton.setRight(equalTo: movieListContentView.rightAnchor, constant: -10)
+        movieListGridButton.setHeight(height: 50)
+        movieListGridButton.setWidth(width: 50)
+        
+    }*/
+
     func setUpMovieListToolBarLineView() {
         movieListContentView.addSubview(movieListToolBarLineView)
-        movieListToolBarLineView.setTop(equalTo:  movieListSearchTextField.bottomAnchor, constant: 5)
+        movieListToolBarLineView.setTop(equalTo:  toolbarView.bottomAnchor)
         movieListToolBarLineView.setLeft(equalTo: movieListContentView.leftAnchor)
         movieListToolBarLineView.setRight(equalTo: movieListContentView.rightAnchor)
-        movieListToolBarLineView.setHeight(height: 3)
+        movieListToolBarLineView.setHeight(height: 1)
     }
     
     func setMovieListCollectionView()  {

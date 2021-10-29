@@ -28,7 +28,7 @@ class FavoriteListCell: UICollectionViewCell {
         let imageName = "harry.jpeg"
         let image = UIImage(named: imageName)
         let imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .top
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
@@ -41,7 +41,7 @@ class FavoriteListCell: UICollectionViewCell {
         label.backgroundColor = .clear
         label.textColor = UIColor.black
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.text = "name label"
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +55,7 @@ class FavoriteListCell: UICollectionViewCell {
         label.backgroundColor = .clear
         label.textColor = UIColor.black
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         label.text = "year label"
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -64,6 +64,8 @@ class FavoriteListCell: UICollectionViewCell {
     lazy var favoritesListCellDeleteFavoriteButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "favorite1"), for: .normal)
+        button.backgroundColor = .red
+        button.layer.cornerRadius = 15
         button.translatesAutoresizingMaskIntoConstraints = false
         button.clipsToBounds = true
         return button

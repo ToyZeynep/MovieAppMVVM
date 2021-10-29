@@ -14,19 +14,23 @@ class MovieListCell: UICollectionViewCell {
     
     lazy var movieListCellContentView : UIView = {
         let view = UIView()
-        view.backgroundColor = .clear
-        view.layer.cornerRadius = 0
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 10
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.masksToBounds = false
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.7
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 10
+        view.layer.shouldRasterize = true
+        view.layer.rasterizationScale = UIScreen.main.scale
         return view
     }()
     
     lazy var movieListCellImageView : UIImageView = {
-       
-        let imageName = "harry.jpeg"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleToFill
+        let imageView = UIImageView()
+        imageView.contentMode = .top
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
@@ -39,7 +43,7 @@ class MovieListCell: UICollectionViewCell {
         label.backgroundColor = .clear
         label.textColor = UIColor.black
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         label.text = "name label"
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +57,7 @@ class MovieListCell: UICollectionViewCell {
         label.backgroundColor = .clear
         label.textColor = UIColor.black
         label.textAlignment = NSTextAlignment.center
-        label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         label.text = "year label"
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false

@@ -19,46 +19,13 @@ class FavoritesListView: UIView {
         return view
     }()
     
-    lazy var favoritesListToolBarView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    lazy var favoritesListListButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "goBack")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        button.tintColor = .red
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.clipsToBounds = true
-        return button
-    }()
-    
-    lazy var favoritesListGridButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "list.png")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        button.tintColor = .red
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.clipsToBounds = true
-        return button
-    }()
-    
-    lazy var favoritesListDeleteButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "delete")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        button.tintColor = .red
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.clipsToBounds = true
-        return button
-    }()
-    
     lazy var favoritesListToolBarLineView: UIView = {
         let view = UIView()
-        view.backgroundColor = .lightGray
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .lightGray
         return view
     }()
-    
+
     lazy var favoritesListCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)

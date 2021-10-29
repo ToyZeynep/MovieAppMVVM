@@ -12,8 +12,8 @@ extension MovieListCell {
         movieListCellContentView.setTop(equalTo: topAnchor)
         movieListCellContentView.setLeft(equalTo: leftAnchor, constant: 10)
         movieListCellContentView.setRight(equalTo: rightAnchor, constant: -10)
-        movieListCellContentView.setHeight(height: 375)
-        movieListCellContentView.setWidth(width: 160)
+        movieListCellContentView.setBottom(equalTo: bottomAnchor, constant: -10)
+        
         setImageView()
         setMovieNameLabel ()
         setMovieYearLabel ()
@@ -25,6 +25,7 @@ extension MovieListCell {
         movieListCellImageView.setTop(equalTo: movieListCellContentView.topAnchor)
         movieListCellImageView.setRight(equalTo: movieListCellContentView.rightAnchor)
         movieListCellImageView.setLeft(equalTo: movieListCellContentView.leftAnchor)
+        movieListCellImageView.setHeight(height: 300)
     }
     
     func setMovieNameLabel (){

@@ -28,12 +28,12 @@ class MovieDetailViewModelImpl : MovieDetailViewModel, MovieDetailViewModelInput
     var imdbRating = BehaviorSubject<String> (value : "")
     // MARK: -Stored properties-
     
-    private let router: UnownedRouter<MovieDetailsRoute>
+    private let router: UnownedRouter<MovieListRoute>
     private let omdbId: String
     var movieDetailsUseCase = MovieDetailsUseCase()
     // MARK: -Initialization-
     
-    init(router: UnownedRouter<MovieDetailsRoute>, omdbId: String ){
+    init(router: UnownedRouter<MovieListRoute>, omdbId: String ){
         self.router = router
         self.omdbId = omdbId
         

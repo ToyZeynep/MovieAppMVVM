@@ -241,8 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				2261958F272A9D6000258339 /* UseCase */,
-				2261958B272A9D3300258339 /* MovieListUseCase.swift */,
-				2261958D272A9D4600258339 /* MovieDetailsUseCase.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -301,6 +299,8 @@
 		2261958F272A9D6000258339 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
+				2261958D272A9D4600258339 /* MovieDetailsUseCase.swift */,
+				2261958B272A9D3300258339 /* MovieListUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";

@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Material
 class MovieListView : UIView {
     
     lazy var movieListContentView: UIView = {
@@ -16,18 +17,25 @@ class MovieListView : UIView {
         return view
     }()
     
+    lazy var toolbarView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(rgb: 0xF5F5F5)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var movieListSearchTextField : UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .white
-        textField.placeholder = "enter movie name"
+        textField.placeholder = "Enter movie name"
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont.systemFont(ofSize: 20)
         textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.layer.borderColor = UIColor.blue.cgColor
         textField.autocorrectionType = UITextAutocorrectionType.no
         textField.keyboardType = UIKeyboardType.default
-        textField.returnKeyType = UIReturnKeyType.done
-        textField.layer.cornerRadius = 6
+        textField.returnKeyType = .search
+        textField.layer.cornerRadius = 10
         textField.clearButtonMode = UITextField.ViewMode.whileEditing
         textField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
         //textField.delegate = self
@@ -35,38 +43,33 @@ class MovieListView : UIView {
     }()
     
     lazy var movieListSearchButton : UIButton = {
-        let image = UIImage(named: "search")
+        let image = UIImage(named: "search2")
         var button = UIButton()
         button.setImage(image, for: .normal)
-        button.setTitle("ara", for: .normal)
-        button.setTitleColor(.red, for: .normal)
-        button.titleLabel?.lineBreakMode = .byWordWrapping
-        button.titleLabel?.textAlignment = .center
-        button.setTitleColor(.blue, for: .normal)
-        button.layer.cornerRadius = 6
-        button.backgroundColor = .white
-        button.tintColor = .brown
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.white.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.imageEdgeInsets = EdgeInsets(top: 5 , left: 5, bottom: 5, right: 5)
         return button
     }()
     
     lazy var movieListFavoritesButton : UIButton = {
-        let image = UIImage(named: "heart")
         var button = UIButton()
-        button.setImage(image, for: .normal)
-        button.setTitle("favorites", for: .normal)
-        button.setTitleColor(.red, for: .normal)
-        button.titleLabel?.lineBreakMode = .byWordWrapping
-        button.titleLabel?.textAlignment = .center
-        button.setTitleColor(.blue, for: .normal)
-        button.layer.cornerRadius = 6
-        button.backgroundColor = .red
-        button.tintColor = .brown
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.white.cgColor
+        button.setImage(UIImage(named: "favorite")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .black
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.imageEdgeInsets = EdgeInsets(top: 3, left: 3, bottom: 3 , right: 3)
+        return button
+    }()
+    
+    lazy var movieListGridButton : UIButton = {
+        var button = UIButton()
+        button.setImage(UIImage(named: "grid-1")?.withRenderingMode(.alwaysTemplate), for: .normal)
+      //  button.layer.cornerRadius = 6
+        button.tintColor = .black
+        button.backgroundColor = .clear
+        //button.layer.borderWidth = 1
+       // button.layer.borderColor = UIColor.white.cgColor
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.imageEdgeInsets = EdgeInsets(top: 3, left: 3, bottom: 3 , right: 3)
         return button
     }()
     
@@ -78,8 +81,9 @@ class MovieListView : UIView {
     }()
     
     lazy var movieListCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = GridFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.keyboardDismissMode = .onDrag
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
         return collectionView

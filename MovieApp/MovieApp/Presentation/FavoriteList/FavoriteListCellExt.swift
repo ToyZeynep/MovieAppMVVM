@@ -14,8 +14,8 @@ extension FavoriteListCell {
         favoritesListCellContentView.setTop(equalTo: topAnchor)
         favoritesListCellContentView.setLeft(equalTo: leftAnchor, constant: 10)
         favoritesListCellContentView.setRight(equalTo: rightAnchor, constant: -10)
-        favoritesListCellContentView.setHeight(height: 375)
-        favoritesListCellContentView.setWidth(width: 160)
+        favoritesListCellContentView.setBottom(equalTo: bottomAnchor, constant : -10)
+        
         setFavoriteListCellImageView()
         setFavoriteListCellNameLabel ()
         setFavoriteListCellYearLabel ()
@@ -27,6 +27,7 @@ extension FavoriteListCell {
         favoritesListCellImageView.setTop(equalTo: favoritesListCellContentView.topAnchor)
         favoritesListCellImageView.setRight(equalTo: favoritesListCellContentView.rightAnchor)
         favoritesListCellImageView.setLeft(equalTo: favoritesListCellContentView.leftAnchor)
+        favoritesListCellImageView.setHeight(height: 300)
     }
     
     func setFavoriteListCellNameLabel (){

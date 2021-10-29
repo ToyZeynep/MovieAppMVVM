@@ -15,7 +15,7 @@ import Kingfisher
 import Action
 
 
-class MovieListViewController: UIViewController, BindableType, UICollectionViewDelegate {
+class MovieListViewController: UIViewController, BindableType, UICollectionViewDelegate , UITextFieldDelegate {
     
     private let cellIdentifier = String(describing: MovieListCell.self)
     let disposeBag = DisposeBag()
@@ -34,6 +34,7 @@ class MovieListViewController: UIViewController, BindableType, UICollectionViewD
     
     override func viewDidLoad() {
         registerCollectionView()
+        movieListView.movieListSearchTextField.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,6 +51,11 @@ class MovieListViewController: UIViewController, BindableType, UICollectionViewD
         super.viewDidDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            self.searchRules()
+            return true
+        }
     
     func bindViewModel() {
         //ilk servis isteğini attık
@@ -71,12 +77,12 @@ class MovieListViewController: UIViewController, BindableType, UICollectionViewD
             cell.movieListCellYearLabel.text = model.year
             
             cell.movieListCellAddFavoriteButton.addTapGesture(){
-                print("tapped")
+    
                 let favoriteList = RealmHelper.sharedInstance.fetchFavoriteList().map { $0 }
                 if let position = favoriteList.firstIndex(where: {$0.imdbID == model.imdbID}){
                     
                     
-                    RealmHelper.sharedInstance.deleteFromDb(movie: model)
+                    RealmHelper.sharedInstance.deleteFromDb(movie: favoriteList[position])
                     AppSnackBar.make(in: self.view, message: "\(model.title!) favorilerden çıkarıldı ", duration: .custom(1.0)).show()
                     cell.movieListCellAddFavoriteButton.backgroundColor = .clear
                     

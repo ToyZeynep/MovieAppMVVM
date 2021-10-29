@@ -34,14 +34,16 @@ class MovieListCoordinator: NavigationCoordinator<MovieListRoute> {
         return .push(viewController, animation: .default)
      
         case .movieDetail( let omdbId):
-       let coordinator = MovieDetailsCoordinator(rootViewController: rootViewController,omdbId: omdbId)
-              addChild(coordinator)
-              return .none()
+            let viewController = MovieDetailsViewController()
+            let viewModel = MovieDetailViewModelImpl(router: unownedRouter, omdbId: omdbId)
+            viewController.bind(to: viewModel)
+            return .push(viewController, animation: .default)
+              
         case .favoriteList:
             let viewController = FavoritesListViewController()
             let viewModel = FavoriteListViewModelImpl(router: unownedRouter)
             viewController.bind(to: viewModel)
-        return .push(viewController, animation: .default)
+            return .push(viewController, animation: .default)
         }
     }
 }
