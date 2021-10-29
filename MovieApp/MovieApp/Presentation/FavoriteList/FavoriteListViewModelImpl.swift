@@ -39,6 +39,7 @@ class FavoriteListViewModelImpl: FavoritesListViewModel, FavoritesListViewModelI
         self.router = router
        fetchFavoritesList()
     }
+    
     func fetchFavoritesList (){
        
             DispatchQueue.main.async {
@@ -48,6 +49,10 @@ class FavoriteListViewModelImpl: FavoritesListViewModel, FavoritesListViewModelI
                 self.favoritesList.onNext(list)
             }
         
+    }
+    
+    func pop() {
+        router.trigger(.pop)
     }
 
 }

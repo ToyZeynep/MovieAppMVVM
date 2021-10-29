@@ -16,9 +16,11 @@ protocol MovieListViewModelInput {
 }
 
 protocol MovieListViewModelOutput {
-
+    var lastPageNumber: PublishSubject<Int> { get }
+    var nextPage: PublishSubject<Int> { get }
     var movieListResponse: PublishSubject<MovieListResponse> { get }
     var movieList: PublishSubject<[Movie]> { get }
+    var errorMessage: PublishSubject<String> { get }
 }
 
 protocol MovieListViewModelStoredProperties {

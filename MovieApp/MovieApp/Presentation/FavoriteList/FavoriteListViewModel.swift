@@ -28,6 +28,7 @@ protocol  FavoritesListViewModel {
     var output: FavoritesListViewModelOutput { get }
     var storedProperties : FavoritesListViewModelStoredProperties { get }
     func fetchFavoritesList()
+    func pop()
  
 }
 

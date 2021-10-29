@@ -59,12 +59,17 @@ class MovieListViewController: UIViewController, BindableType, UICollectionViewD
     
     func bindViewModel() {
         //ilk servis isteğini attık
+        viewModel.output.errorMessage.subscribe(onNext : { errorMessage in
+            self.showAlert(title: "ERROR!", message: errorMessage)
+        }).disposed(by: disposeBag)
+        
         movieListView.movieListSearchButton.rx.tapGesture().when(.recognized).subscribe(onNext:{ [self] gesture in
             self.searchRules()
         }).disposed(by: disposeBag)
         
         
         viewModel.output.movieListResponse.subscribe(onNext: {[self] response in
+            totalPageCount = response.getTotalPageNumber()
             self.movieList.append(contentsOf: response.movies!)
             self.viewModel.output.movieList.onNext(self.movieList)
             self.isLoading = false
@@ -80,14 +85,9 @@ class MovieListViewController: UIViewController, BindableType, UICollectionViewD
     
                 let favoriteList = RealmHelper.sharedInstance.fetchFavoriteList().map { $0 }
                 if let position = favoriteList.firstIndex(where: {$0.imdbID == model.imdbID}){
-                    
-                    
                     RealmHelper.sharedInstance.deleteFromDb(movie: favoriteList[position])
                     AppSnackBar.make(in: self.view, message: "\(model.title!) favorilerden çıkarıldı ", duration: .custom(1.0)).show()
                     cell.movieListCellAddFavoriteButton.backgroundColor = .clear
-                    
-                    
-                    
                 }else{
                     RealmHelper.sharedInstance.addMovieToFavorites(movie: model)
                     AppSnackBar.make(in: self.view, message: "\(model.title!) favorilere eklendi", duration: .custom(1.0)).show()
@@ -106,8 +106,6 @@ class MovieListViewController: UIViewController, BindableType, UICollectionViewD
         movieListView.movieListCollectionView.collectionViewLayout = gridFlowLayout
     }
      
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-    }
  
     func registerCollectionView() {
         movieListView.movieListCollectionView.delegate = self
@@ -137,4 +135,14 @@ class MovieListViewController: UIViewController, BindableType, UICollectionViewD
             cell.movieListCellAddFavoriteButton.backgroundColor = .clear
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    if !isLoading && nextPageNumber <= totalPageCount {
+        if (indexPath.row == movieList.count - 1) && (movieList.count % 10 == 0) {
+            nextPageNumber += 1
+            viewModel.fetchMovieList(searchText: movieListView.movieListSearchTextField.text!, page: nextPageNumber)
+            isLoading = true
+        }
+    }
+}
 }

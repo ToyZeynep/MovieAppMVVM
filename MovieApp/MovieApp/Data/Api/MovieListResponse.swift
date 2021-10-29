@@ -25,4 +25,16 @@ struct MovieListResponse: Codable {
         totalResults = try values.decodeIfPresent(String.self, forKey: .totalResults)
         response = try values.decodeIfPresent(String.self, forKey: .response)
     }
+    
+    
+    func getTotalPageNumber() -> Int{
+        let result = Int(Int(totalResults!)! / 10)
+        let result2 = Int(totalResults!)! / 10
+        if result == result2 {
+            return result
+        } else {
+            return result + 1
+        }
+
+    }
 }

@@ -32,6 +32,7 @@ class MovieListViewModelImpl: MovieListViewModel, MovieListViewModelInput, Movie
     var lastPageNumber = PublishSubject<Int>()
     var movieList = PublishSubject<[Movie]>()
     var nextPage = PublishSubject<Int>()
+    var errorMessage = PublishSubject<String>()
     
     // MARK: -Stored properties-
     
@@ -52,7 +53,8 @@ class MovieListViewModelImpl: MovieListViewModel, MovieListViewModelInput, Movie
         movieListUseCase.getMovieList(params: params).subscribe(onNext: { response in
             if response.movies != nil {
                 self.movieListResponse.onNext(response)
-
+            } else {
+                self.errorMessage.onNext("There is no such movie")
             }
         }).disposed(by: disposeBag)
     }

@@ -15,6 +15,7 @@ enum MovieListRoute: Route {
     case movieList
     case movieDetail(omdbId : String)
     case favoriteList
+    case pop
     
 }
 
@@ -44,6 +45,9 @@ class MovieListCoordinator: NavigationCoordinator<MovieListRoute> {
             let viewModel = FavoriteListViewModelImpl(router: unownedRouter)
             viewController.bind(to: viewModel)
             return .push(viewController, animation: .default)
+            
+        case .pop :
+            return .pop(animation: .default)
         }
     }
 }
