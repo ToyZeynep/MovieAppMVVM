@@ -19,7 +19,7 @@ import RealmSwift
 
 class FavoritesListViewController : UIViewController, BindableType, UICollectionViewDelegate {
     
-    private let cellIdentifier = String(describing: FavoritesListCell.self)
+    private let cellIdentifier = String(describing: FavoriteListCell.self)
     let disposeBag = DisposeBag()
     var favoritesListView = FavoritesListView()
     var viewModel: FavoritesListViewModel!
@@ -52,43 +52,27 @@ class FavoritesListViewController : UIViewController, BindableType, UICollection
     
     func bindViewModel() {
         
-        viewModel.output.favoritesList.bind(to: favoritesListView.favoritesListCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: FavoritesListCell.self)) { _, model , cell in
+        viewModel.output.favoritesList.bind(to: favoritesListView.favoritesListCollectionView.rx.items(cellIdentifier: cellIdentifier, cellType: FavoriteListCell.self)) { _, model , cell in
             
-            let urlString = model.image!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            let urlString = model.poster!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             cell.favoritesListCellImageView.kf.setImage(with: URL(string: urlString!))
-            cell.favoritesListCellNameLabel.text = model.name
-            cell.favoritesListCellStatusLabel.text = model.status
-            cell.favoritesListCellSpeciesLabel.text = model.species
-            cell.favoritesListCellDeleteFavoriteButton.backgroundColor = .red
-            
-            cell.favoritesListCellDeleteFavoriteButton.addTapGesture {
-                print("----tıkı tıkı----")
-                RealmHelper.sharedInstance.deleteFromDb(characterDetails: model)
-                self.viewModel.fetchFavoriteList()
-            }
-            
-        }.disposed(by: disposeBag)
-        
-        favoritesListView.favoritesListCollectionView.rx.modelSelected(CharacterDetails.self)
-            .bind(to: viewModel.input.selectedCharacter).disposed(by: disposeBag)
+            cell.favoritesListCellNameLabel.text = model.title
+            cell.favoritesListCellYearLabel.text = model.year
+            cell.favoritesListCellDeleteFavoriteButton.addTapGesture{
+                RealmHelper.sharedInstance.deleteFromDb(movie: model)
+                self.viewModel.fetchFavoritesList()
+        }
+    }
+        favoritesListView.favoritesListCollectionView.rx.modelSelected(Movie.self)
+            .bind(to: viewModel.input.selectedMovie).disposed(by: disposeBag)
         
         favoritesListView.favoritesListDeleteButton.rx.tapGesture().when(.recognized).subscribe(onNext : { gesture in
             self.deleteButtonProcesses()
         }).disposed(by: disposeBag)
-        
-        favoritesListView.favoritesListGridButton.rx.tapGesture().when(.recognized).subscribe(onNext: { gesture in
-            self.gridButtonProcesses()
-            
-        }).disposed(by: disposeBag)
-        
-        favoritesListView.favoritesListListButton.rx.tapGesture().when(.recognized).subscribe(onNext: { gesture in
-            self.viewModel.dismiss()
-        }).disposed(by: disposeBag)
-    }
-
+}
     func registerCollectionView() {
         favoritesListView.favoritesListCollectionView.delegate = self
-        favoritesListView.favoritesListCollectionView.register(FavoritesListCell.self, forCellWithReuseIdentifier: "FavoritesListCell")
+        favoritesListView.favoritesListCollectionView.register(FavoriteListCell.self, forCellWithReuseIdentifier: "FavoriteListCell")
         favoritesListView.favoritesListCollectionView.collectionViewLayout = gridFlowLayout
     }
     
@@ -100,6 +84,6 @@ class FavoritesListViewController : UIViewController, BindableType, UICollection
     
     func deleteButtonProcesses(){
         RealmHelper.sharedInstance.deleteAllFromDatabase()
-        self.viewModel.fetchFavoriteList()
+        self.viewModel.fetchFavoritesList()
     }
 }

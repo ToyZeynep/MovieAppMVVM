@@ -8,7 +8,7 @@ import Foundation
 extension MovieListCell {
     
     func setUpmovieListCellContentView() {
-        contentView.addSubview(movieListCellContentView)
+        addSubview(movieListCellContentView)
         movieListCellContentView.setTop(equalTo: topAnchor)
         movieListCellContentView.setLeft(equalTo: leftAnchor, constant: 10)
         movieListCellContentView.setRight(equalTo: rightAnchor, constant: -10)

@@ -30,6 +30,7 @@ protocol MovieListViewModel{
     var output: MovieListViewModelOutput { get }
     var storedProperties : MovieListViewModelStoredProperties { get }
     func fetchMovieList(searchText: String , page : Int)
+    func navigateToFavorites()
 }
 
 extension MovieListViewModel where Self:  MovieListViewModelInput & MovieListViewModelOutput & MovieListViewModelStoredProperties {

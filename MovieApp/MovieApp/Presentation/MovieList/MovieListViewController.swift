@@ -26,7 +26,8 @@ class MovieListViewController: UIViewController, BindableType, UICollectionViewD
     var isLoading = false
     var listFlowLayOut = ListFlowLayout()
     var totalPageCount = Int()
-    
+    var lastSearch = ""
+    var gridFlowLayout = GridFlowLayout()
     override func loadView() {
         view = movieListView
     }
@@ -53,25 +54,50 @@ class MovieListViewController: UIViewController, BindableType, UICollectionViewD
     func bindViewModel() {
         //ilk servis isteğini attık
         movieListView.movieListSearchButton.rx.tapGesture().when(.recognized).subscribe(onNext:{ [self] gesture in
-            
-            viewModel.fetchMovieList(searchText: movieListView.movieListSearchTextField.text! , page: 1)
-            
+            self.searchRules()
         }).disposed(by: disposeBag)
+        
+        
+        viewModel.output.movieListResponse.subscribe(onNext: {[self] response in
+            self.movieList.append(contentsOf: response.movies!)
+            self.viewModel.output.movieList.onNext(self.movieList)
+            self.isLoading = false
+        }).disposed(by:disposeBag)
         
         viewModel.output.movieList.bind(to: movieListView.movieListCollectionView.rx.items(cellIdentifier:cellIdentifier , cellType: MovieListCell.self)){[self] _, model, cell in
             let urlString = model.poster!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             cell.movieListCellImageView.kf.setImage(with: URL(string: urlString!))
             cell.movieListCellNameLabel.text = model.title
             cell.movieListCellYearLabel.text = model.year
-            cell.movieListCellAddFavoriteButton.rx.tapGesture().when(.recognized).subscribe(onNext: { gesture in
-                
-                
-            }).disposed(by: disposeBag)
             
+            cell.movieListCellAddFavoriteButton.addTapGesture(){
+                print("tapped")
+                let favoriteList = RealmHelper.sharedInstance.fetchFavoriteList().map { $0 }
+                if let position = favoriteList.firstIndex(where: {$0.imdbID == model.imdbID}){
+                    
+                    
+                    RealmHelper.sharedInstance.deleteFromDb(movie: model)
+                    AppSnackBar.make(in: self.view, message: "\(model.title!) favorilerden çıkarıldı ", duration: .custom(1.0)).show()
+                    cell.movieListCellAddFavoriteButton.backgroundColor = .clear
+                    
+                    
+                    
+                }else{
+                    RealmHelper.sharedInstance.addMovieToFavorites(movie: model)
+                    AppSnackBar.make(in: self.view, message: "\(model.title!) favorilere eklendi", duration: .custom(1.0)).show()
+                    cell.movieListCellAddFavoriteButton.backgroundColor = .red
+                }
+
+            }
+            self.favoriMovieStatus(cell: cell, model: model)
         }.disposed(by: disposeBag)
+        
+        movieListView.movieListFavoritesButton.addTapGesture{
+            self.viewModel.navigateToFavorites()
+        }
 
         movieListView.movieListCollectionView.rx.modelSelected(Movie.self).bind(to: viewModel.input.selectedMovie).disposed(by: disposeBag)
-     
+        movieListView.movieListCollectionView.collectionViewLayout = gridFlowLayout
     }
      
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -81,5 +107,28 @@ class MovieListViewController: UIViewController, BindableType, UICollectionViewD
         movieListView.movieListCollectionView.delegate = self
         movieListView.movieListCollectionView.register(MovieListCell.self, forCellWithReuseIdentifier: "MovieListCell")
         movieListView.movieListCollectionView.collectionViewLayout = listFlowLayOut
+    }
+    
+    func searchRules(){
+        
+        if lastSearch == ""{
+            viewModel.fetchMovieList(searchText: movieListView.movieListSearchTextField.text! , page: 1)
+            lastSearch = movieListView.movieListSearchTextField.text!
+        }else{
+            if lastSearch != movieListView.movieListSearchTextField.text!{
+            self.movieList.removeAll()
+            viewModel.fetchMovieList(searchText: movieListView.movieListSearchTextField.text! , page: 1)
+            lastSearch = movieListView.movieListSearchTextField.text!
+                
+            }
+        }
+    }
+    func favoriMovieStatus(cell: MovieListCell, model: Movie) {
+        let favoriteList = RealmHelper.sharedInstance.fetchFavoriteList().map { $0 }
+        if let position = favoriteList.firstIndex(where: {$0.imdbID == model.imdbID}){
+            cell.movieListCellAddFavoriteButton.backgroundColor = .red
+        } else {
+            cell.movieListCellAddFavoriteButton.backgroundColor = .clear
+        }
     }
 }

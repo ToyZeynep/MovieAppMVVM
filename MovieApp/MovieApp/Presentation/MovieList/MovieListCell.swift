@@ -61,11 +61,14 @@ class MovieListCell: UICollectionViewCell {
     } ()
     lazy var movieListCellAddFavoriteButton: UIButton = {
         let button = UIButton(type: .custom)
-        button.setImage(UIImage(named: "like"), for: .normal)
+        button.setImage(UIImage(named: "favorite1"), for: .normal)
+        button.backgroundColor = .clear
+        button.layer.cornerRadius = 15
         button.translatesAutoresizingMaskIntoConstraints = false
         button.clipsToBounds = true
         return button
     }()
+   
     
 
     lazy var width: NSLayoutConstraint = {

@@ -38,9 +38,10 @@ class MovieListCoordinator: NavigationCoordinator<MovieListRoute> {
               addChild(coordinator)
               return .none()
         case .favoriteList:
-            let coordinator = FavoritesListCoordinator(rootViewController: rootViewController)
-            addChild(coordinator)
-            return .none()
+            let viewController = FavoritesListViewController()
+            let viewModel = FavoriteListViewModelImpl(router: unownedRouter)
+            viewController.bind(to: viewModel)
+        return .push(viewController, animation: .default)
         }
     }
 }

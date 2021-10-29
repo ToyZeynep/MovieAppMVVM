@@ -56,5 +56,7 @@ class MovieListViewModelImpl: MovieListViewModel, MovieListViewModelInput, Movie
             }
         }).disposed(by: disposeBag)
     }
-    
+    func navigateToFavorites()  {
+        router.trigger(.favoriteList)
+    }
 }

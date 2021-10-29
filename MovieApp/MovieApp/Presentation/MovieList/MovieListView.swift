@@ -53,16 +53,16 @@ class MovieListView : UIView {
     }()
     
     lazy var movieListFavoritesButton : UIButton = {
-        let image = UIImage(named: "like")
+        let image = UIImage(named: "heart")
         var button = UIButton()
         button.setImage(image, for: .normal)
-        button.setTitle("like", for: .normal)
+        button.setTitle("favorites", for: .normal)
         button.setTitleColor(.red, for: .normal)
         button.titleLabel?.lineBreakMode = .byWordWrapping
         button.titleLabel?.textAlignment = .center
         button.setTitleColor(.blue, for: .normal)
         button.layer.cornerRadius = 6
-        button.backgroundColor = .white
+        button.backgroundColor = .red
         button.tintColor = .brown
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.white.cgColor

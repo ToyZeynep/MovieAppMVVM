@@ -12,9 +12,6 @@ import Action
 import RealmSwift
 
 class FavoriteListViewModelImpl: FavoritesListViewModel, FavoritesListViewModelInput, FavoritesListViewModelOutput, FavoritesListViewModelStoredProperties {
-    func fetchFavoriteList() {
-        
-    }
 
     let disposeBag = DisposeBag()
     
@@ -33,17 +30,24 @@ class FavoriteListViewModelImpl: FavoritesListViewModel, FavoritesListViewModelI
     
     // MARK: -Stored properties-
     
-    private let router : UnownedRouter<FavoritesListRoute>
+    private let router : UnownedRouter<MovieListRoute>
     
     
     // MARK: -Initialization-
     
-    init(router: UnownedRouter<FavoritesListRoute> ) {
+    init(router: UnownedRouter<MovieListRoute> ) {
         self.router = router
+       fetchFavoritesList()
+    }
+    func fetchFavoritesList (){
+       
+            DispatchQueue.main.async {
+                let favoriList = RealmHelper.sharedInstance.fetchFavoriteList().map { $0 }
+                var list:[Movie] = [Movie]()
+                list.append(contentsOf: favoriList)
+                self.favoritesList.onNext(list)
+            }
         
     }
 
-    func dismiss() {
-        router.trigger(.dismiss)
-    }
 }

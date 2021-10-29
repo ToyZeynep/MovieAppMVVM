@@ -14,7 +14,6 @@ import XCoordinator
 enum MovieDetailsRoute: Route {
     
     case movieDetail(omdbId : String)
-    case favoriteList
 }
 
 class MovieDetailsCoordinator: NavigationCoordinator<MovieDetailsRoute> {
@@ -32,11 +31,7 @@ class MovieDetailsCoordinator: NavigationCoordinator<MovieDetailsRoute> {
             viewController.bind(to: viewModel)
         return .push(viewController, animation: .default)
             
-        case .favoriteList:
-            let coordinator = FavoritesListCoordinator(rootViewController: rootViewController)
-            addChild(coordinator)
-            return .none()
-     
+        
         }
     }
 }

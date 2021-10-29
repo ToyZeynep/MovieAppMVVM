@@ -312,8 +312,8 @@
 				22619598272AB68700258339 /* MovieListViewExt.swift */,
 				2261959A272AB69900258339 /* MovieListViewController.swift */,
 				2261959C272AB6AF00258339 /* MovieListViewModel.swift */,
-				226195A0272AB6DB00258339 /* MovieListCell.swift */,
 				2261959E272AB6C800258339 /* MovieListViewModelImpl.swift */,
+				226195A0272AB6DB00258339 /* MovieListCell.swift */,
 				226195A2272AB6EB00258339 /* MovieListCellExt.swift */,
 			);
 			path = MovieList;
