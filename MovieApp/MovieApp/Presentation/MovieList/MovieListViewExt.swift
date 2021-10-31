@@ -34,8 +34,6 @@ extension MovieListView {
         setFavoritesButton ()
         setSearchButton()
         setSearchTextField()
-
-       
         
     }
     

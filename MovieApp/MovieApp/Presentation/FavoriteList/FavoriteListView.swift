@@ -14,7 +14,7 @@ class FavoritesListView: UIView {
     
     lazy var favoritesListContentView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(rgb: 0xF5F5F5)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -27,8 +27,9 @@ class FavoritesListView: UIView {
     }()
 
     lazy var favoritesListCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = GridFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.keyboardDismissMode = .onDrag
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
         return collectionView

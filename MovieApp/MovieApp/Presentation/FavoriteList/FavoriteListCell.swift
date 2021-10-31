@@ -16,18 +16,23 @@ class FavoriteListCell: UICollectionViewCell {
     
     lazy var favoritesListCellContentView : UIView = {
         let view = UIView()
-        view.backgroundColor = .clear
-        view.layer.cornerRadius = 0
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 10
         view.clipsToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.masksToBounds = false
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.3
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 1
+        view.layer.shouldRasterize = true
+        view.layer.rasterizationScale = UIScreen.main.scale
         return view
     }()
     
     lazy var favoritesListCellImageView : UIImageView = {
        
-        let imageName = "harry.jpeg"
-        let image = UIImage(named: imageName)
-        let imageView = UIImageView(image: image)
+        let imageView = UIImageView()
         imageView.contentMode = .top
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 10

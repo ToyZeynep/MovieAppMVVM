@@ -19,6 +19,7 @@ extension MovieDetailsView {
         setmovieDetailsImageView()
         setMovieDetailsNameLabel ()
         setMovieDetailsSummaryLabel()
+        setmovieDetailsImdbRatingLabel()
     }
     
     func setmovieDetailsImageView() {

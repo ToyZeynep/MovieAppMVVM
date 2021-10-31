@@ -48,7 +48,6 @@ class FavoriteListViewModelImpl: FavoritesListViewModel, FavoritesListViewModelI
                 list.append(contentsOf: favoriList)
                 self.favoritesList.onNext(list)
             }
-        
     }
     
     func pop() {

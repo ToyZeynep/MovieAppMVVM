@@ -25,7 +25,7 @@ class MovieDetailViewModelImpl : MovieDetailViewModel, MovieDetailViewModelInput
     var name =  BehaviorSubject<String> (value: "")
     var summary = BehaviorSubject<String> (value: "")
     var imageUrl = BehaviorSubject<String> (value: "")
-    var imdbRating = BehaviorSubject<String> (value : "")
+    var imdbRating = BehaviorSubject<String> (value: "")
     // MARK: -Stored properties-
     
     private let router: UnownedRouter<MovieListRoute>
@@ -53,6 +53,7 @@ class MovieDetailViewModelImpl : MovieDetailViewModel, MovieDetailViewModelInput
         name.onNext(movieDetailsResponse.title!)
         summary.onNext(movieDetailsResponse.plot!)
         imageUrl.onNext(movieDetailsResponse.poster!)
+        imdbRating.onNext(movieDetailsResponse.imdbRating!)
     }
     
 }

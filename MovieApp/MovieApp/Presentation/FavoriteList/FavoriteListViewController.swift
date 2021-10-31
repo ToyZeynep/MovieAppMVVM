@@ -44,7 +44,7 @@ class FavoritesListViewController : UIViewController, BindableType, UICollection
       //  navigationController?.setNavigationBarHidden(true, animated: animated)
         let image = UIImage(named: "delete")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(addTapped))
-        navigationItem.rightBarButtonItem?.imageInsets = UIEdgeInsets(top: 3, left: 3, bottom: -3, right: -3)
+        navigationItem.rightBarButtonItem?.imageInsets = UIEdgeInsets(top: 4, left: 3, bottom: -4, right: -3)
         navigationController?.navigationBar.backgroundColor = UIColor(rgb: 0xF5F5F5)
     }
     

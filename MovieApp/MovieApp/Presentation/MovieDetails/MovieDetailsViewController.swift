@@ -28,9 +28,10 @@ class MovieDetailsViewController : UIViewController, BindableType, UICollectionV
         }
 
         func bindViewModel() {
-            viewModel.output.imdbRating.bind(to: movieDetailsView.movieDetailsImdbRatingLabel.rx.text).disposed(by: disposeBag)
             viewModel.output.name.bind(to: movieDetailsView.movieDetailsNameLabel.rx.text).disposed(by: disposeBag)
             viewModel.output.summary.bind(to: movieDetailsView.movieDetailsSummaryLabel.rx.text).disposed(by: disposeBag)
+            viewModel.output.imdbRating.bind(to: movieDetailsView.movieDetailsImdbRatingLabel.rx.text).disposed(by: disposeBag)
+            print(viewModel.output.imdbRating)
             viewModel.output.imageUrl.subscribe(onNext : { [self] Url in
                 let urlString = Url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
                 movieDetailsView.movieDetailsImageView.kf.setImage(with: URL(string: urlString!))
