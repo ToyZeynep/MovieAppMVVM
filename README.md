@@ -1,17 +1,33 @@
+![APP LOGO](https://github.com/SaniyeToy/MovieAppMVVM/issues/2#issue-1041088352)
+### This movie application that I created using OMDb Api is an application where you can search movies by name and bookmark your favorite movies.
+`git status`
 # Table of contents
-1. [Introduction](#introduction)
-2. [Some paragraph](#paragraph1)
-    1. [Sub paragraph](#subparagraph1)
-3. [Another paragraph](#paragraph2)
+1. [Features](#Features)
+2. [Used Methods and Libraries](#UsedMethodsandLibraries)
+3. [Requirements](#Requirements)
+4. [Usage](#Usage)
+5. [Screen Shots](#ScreenShots)
+6. [Contributing](#Contributing)
+7. [Communication](#Communication)
 
-## This is the introduction <a name="introduction"></a>
+## Features<a name="Features"></a>
 Some introduction text, formatted in heading 2 style
 
-## Some paragraph <a name="paragraph1"></a>
+## Used Methods and Libraries <a name="UsedMethodsandLibraries"></a>
 The first paragraph text
 
-### Sub paragraph <a name="subparagraph1"></a>
+## Requirements <a name="Requirements"></a>
 This is a sub paragraph, formatted in heading 3 style
 
-## Another paragraph <a name="paragraph2"></a>
+## Usage <a name="Usage"></a>
 The second paragraph text
+
+## Screen Shots <a name="ScreenShots"></a>
+The second paragraph text
+
+## Contributing <a name="Contributing"></a>
+The second paragraph text
+
+## Communication <a name="Communication"></a>
+The second paragraph text
+
