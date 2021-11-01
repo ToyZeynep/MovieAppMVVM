@@ -1,33 +1,44 @@
-![APP LOGO](https://github.com/SaniyeToy/MovieAppMVVM/issues/2#issue-1041088352)
+![AppLogo](https://user-images.githubusercontent.com/75203610/139675724-40d8567f-ff03-4c9f-9855-40501e412ca1.jpg)
 ### This movie application that I created using OMDb Api is an application where you can search movies by name and bookmark your favorite movies.
 `git status`
 # Table of contents
 1. [Features](#Features)
 2. [Used Methods and Libraries](#UsedMethodsandLibraries)
-3. [Requirements](#Requirements)
 4. [Usage](#Usage)
 5. [Screen Shots](#ScreenShots)
-6. [Contributing](#Contributing)
-7. [Communication](#Communication)
+6. [Communication](#Communication)
 
 ## Features<a name="Features"></a>
-Some introduction text, formatted in heading 2 style
+- Programmatically UI design
+- Capturing the same image for different resolution devices with responsive screen design
+- Compliance with Apple Best Practice Guide design recommendations
+- Developed with Reactive programming techniques using Rx libraries
+- Rest Api operations using Alamofire library
+- High testability and readability with MVVM and Clean architecture
+- Cross-screen root control without using storyboard with the help of XCoordinator library
+- Keeping and processing data in local memory with RealmSwift library
+- With the KingFisher library, the images are kept in the cache and the loading of the images is made easier
+- Repeated code blocks recommended for clean coding are combined in flexible methods
+- Pagination structure is used to increase performance on list screens
+- Ability to change list view sizes in Run Time
+- The operations to be done on the project created on Git are divided into branches and the project is completed over the branches
+- Care was taken to ensure that in-app method and variable naming are in English and comprehensible
 
 ## Used Methods and Libraries <a name="UsedMethodsandLibraries"></a>
-The first paragraph text
-
-## Requirements <a name="Requirements"></a>
-This is a sub paragraph, formatted in heading 3 style
-
+- [Alamofire](https://github.com/Alamofire/Alamofire)
+- [RxSwift](https://github.com/ReactiveX/RxSwift)
+- [RxCocoa](https://github.com/ReactiveX/RxSwift/tree/main/RxCocoa)
+- [RxGesture](https://github.com/RxSwiftCommunity/RxGesture)
+- [XCoordinator](https://github.com/quickbirdstudios/XCoordinator)
+- [RealmSwift](https://github.com/realm/realm-cocoa)
+- [KingFisher](https://github.com/onevcat/Kingfisher)
+- [SnackBar](https://github.com/ahmedAlmasri/SnackBar.swift)
 ## Usage <a name="Usage"></a>
-The second paragraph text
+Movie App is a movie finder app. Search is made by typing a few words from the movie name in the search bar. In response, a list comes up with pictures, names and dates of the movies. The button on the top right of the cell adds the movie to favorites to store it in the database it created in the local memory, and removes the attached ones. The button on the top right of the view takes you to the favorites view. Favorite movies are displayed here. When one of the cells is clicked on the search view and the favorites view, it will take you to the details view. On the details view, there are details such as the summary of the movie and the imdb score.
 
 ## Screen Shots <a name="ScreenShots"></a>
-The second paragraph text
-
-## Contributing <a name="Contributing"></a>
-The second paragraph text
 
 ## Communication <a name="Communication"></a>
-The second paragraph text
+- [GitHub](https://github.com/SaniyeToy)
+- [Linkedln](https://www.linkedin.com/in/saniye-toy/)
 
