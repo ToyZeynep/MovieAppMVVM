@@ -1,5 +1,5 @@
 ![AppLogo](https://user-images.githubusercontent.com/75203610/139675724-40d8567f-ff03-4c9f-9855-40501e412ca1.jpg)
-### This movie application that I created using OMDb Api is an application where you can search movies by name and bookmark your favorite movies.
+### This movie application that I created using [OMDb Api](https://www.omdbapi.com/) is an application where you can search movies by name and bookmark your favorite movies.
 
 # Table of contents
 1. [Features](#Features)
@@ -15,8 +15,8 @@
 - Capturing the same image for different resolution devices with responsive screen design
 - Compliance with Apple Best Practice Guide design recommendations
 - Developed with Reactive programming techniques using Rx libraries
-- Rest Api operations using Alamofire library
-- High testability and readability with MVVM and Clean architecture
+- Rest Api operations are done using Alamofire library
+- It has high testability and readability with MVVM and Clean architecture.
 - Cross-screen root control without using storyboard with the help of XCoordinator library
 - Keeping and processing data in local memory with RealmSwift library
 - With the KingFisher library, the images are kept in the cache and the loading of the images is made easier
