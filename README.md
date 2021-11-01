@@ -1,12 +1,14 @@
 ![AppLogo](https://user-images.githubusercontent.com/75203610/139675724-40d8567f-ff03-4c9f-9855-40501e412ca1.jpg)
 ### This movie application that I created using OMDb Api is an application where you can search movies by name and bookmark your favorite movies.
-`git status`
+
 # Table of contents
 1. [Features](#Features)
 2. [Used Methods and Libraries](#UsedMethodsandLibraries)
 4. [Usage](#Usage)
-5. [Screen Shots](#ScreenShots)
-6. [Communication](#Communication)
+5. [Requiremonts](#Requiremonts)
+6. [Installation](#Installation)
+7. [Screen Shots](#ScreenShots)
+8. [Communication](#Communication)
 
 ## Features<a name="Features"></a>
 - Programmatically UI design
@@ -33,12 +35,23 @@
 - [RealmSwift](https://github.com/realm/realm-cocoa)
 - [KingFisher](https://github.com/onevcat/Kingfisher)
 - [SnackBar](https://github.com/ahmedAlmasri/SnackBar.swift)
+ 
 ## Usage <a name="Usage"></a>
 Movie App is a movie finder app. Search is made by typing a few words from the movie name in the search bar. In response, a list comes up with pictures, names and dates of the movies. The button on the top right of the cell adds the movie to favorites to store it in the database it created in the local memory, and removes the attached ones. The button on the top right of the view takes you to the favorites view. Favorite movies are displayed here. When one of the cells is clicked on the search view and the favorites view, it will take you to the details view. On the details view, there are details such as the summary of the movie and the imdb score.
+
+## Requiremonts <a name="Requiremonts"></a>
+Versions I use:
+- `ruby 2.6.3p62`
+- `cocoapods-1.11.2` 
+
+## Installation <a name="Installation"></a>
+`pod install` is written to the file path of the application in the terminal and the application is run on xcode
+
 
 ## Screen Shots <a name="ScreenShots"></a>
 
 ## Communication <a name="Communication"></a>
 - [GitHub](https://github.com/SaniyeToy)
 - [Linkedln](https://www.linkedin.com/in/saniye-toy/)
+
 
