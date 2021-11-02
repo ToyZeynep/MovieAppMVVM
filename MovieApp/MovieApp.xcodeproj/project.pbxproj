@@ -37,9 +37,7 @@
 		226195AF272ACE4800258339 /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226195AE272ACE4800258339 /* BindableType.swift */; };
 		226195B1272ACE5F00258339 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226195B0272ACE5F00258339 /* ViewExtension.swift */; };
 		226195B3272ACE7400258339 /* SnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226195B2272ACE7400258339 /* SnackBar.swift */; };
-		226195B5272AD12D00258339 /* MovieDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226195B4272AD12D00258339 /* MovieDetailsCoordinator.swift */; };
 		226195B7272AD13D00258339 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226195B6272AD13D00258339 /* AppCoordinator.swift */; };
-		226195B9272AD15800258339 /* FavoriteListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226195B8272AD15800258339 /* FavoriteListCoordinator.swift */; };
 		226195BD272AE54800258339 /* MovieDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226195BC272AE54800258339 /* MovieDetailsView.swift */; };
 		226195BF272AE56000258339 /* MovieDetailsViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226195BE272AE56000258339 /* MovieDetailsViewExt.swift */; };
 		226195C1272AE59F00258339 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226195C0272AE59F00258339 /* MovieDetailsViewController.swift */; };
@@ -109,9 +107,7 @@
 		226195AE272ACE4800258339 /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
 		226195B0272ACE5F00258339 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		226195B2272ACE7400258339 /* SnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnackBar.swift; sourceTree = "<group>"; };
-		226195B4272AD12D00258339 /* MovieDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsCoordinator.swift; sourceTree = "<group>"; };
 		226195B6272AD13D00258339 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		226195B8272AD15800258339 /* FavoriteListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListCoordinator.swift; sourceTree = "<group>"; };
 		226195BC272AE54800258339 /* MovieDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsView.swift; sourceTree = "<group>"; };
 		226195BE272AE56000258339 /* MovieDetailsViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewExt.swift; sourceTree = "<group>"; };
 		226195C0272AE59F00258339 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
@@ -261,8 +257,6 @@
 			children = (
 				226195B6272AD13D00258339 /* AppCoordinator.swift */,
 				226195A4272ACAF500258339 /* MovieListCoordinator.swift */,
-				226195B4272AD12D00258339 /* MovieDetailsCoordinator.swift */,
-				226195B8272AD15800258339 /* FavoriteListCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -612,7 +606,6 @@
 				226195C5272AE5C900258339 /* MovieDetailsViewModelImpl.swift in Sources */,
 				226195C8272AF35B00258339 /* FavoriteListView.swift in Sources */,
 				226195A9272ACE0300258339 /* RealmHelper.swift in Sources */,
-				226195B5272AD12D00258339 /* MovieDetailsCoordinator.swift in Sources */,
 				22619597272AB64E00258339 /* MovieListView.swift in Sources */,
 				22AAF242272C60F800C9E135 /* AlertHelper.swift in Sources */,
 				226195AB272ACE1500258339 /* GridFlowLayOut.swift in Sources */,
@@ -628,7 +621,6 @@
 				226195BD272AE54800258339 /* MovieDetailsView.swift in Sources */,
 				22619593272A9F0400258339 /* ApiConfiguration.swift in Sources */,
 				2261958C272A9D3300258339 /* MovieListUseCase.swift in Sources */,
-				226195B9272AD15800258339 /* FavoriteListCoordinator.swift in Sources */,
 				226195A3272AB6EB00258339 /* MovieListCellExt.swift in Sources */,
 				226195CC272AF38700258339 /* FavoriteListViewController.swift in Sources */,
 				22619599272AB68700258339 /* MovieListViewExt.swift in Sources */,

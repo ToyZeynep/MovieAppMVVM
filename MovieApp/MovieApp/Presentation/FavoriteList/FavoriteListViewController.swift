@@ -46,6 +46,7 @@ class FavoritesListViewController : UIViewController, BindableType, UICollection
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: image , style: .plain, target: self, action: #selector(addTapped))
         navigationItem.rightBarButtonItem?.imageInsets = UIEdgeInsets(top: 4, left: 3, bottom: -4, right: -3)
         navigationController?.navigationBar.backgroundColor = UIColor(rgb: 0xF5F5F5)
+        navigationController?.navigationBar.tintColor = .black
     }
     
     @objc func addTapped(){

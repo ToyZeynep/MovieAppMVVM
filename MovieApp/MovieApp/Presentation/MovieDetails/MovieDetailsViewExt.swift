@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import UIKit
+
 extension MovieDetailsView {
     
     func setUpMovieDetailsContentView()  {
+        view.backgroundColor = UIColor(rgb: 0xF5F5F5)
         addSubview(movieDetailsContentView)
         if #available(iOS 11.0, *) {
             movieDetailsContentView.setTop(equalTo: safeAreaLayoutGuide.topAnchor)

@@ -37,12 +37,14 @@ class MovieListCoordinator: NavigationCoordinator<MovieListRoute> {
         case .movieDetail( let omdbId):
             let viewController = MovieDetailsViewController()
             let viewModel = MovieDetailViewModelImpl(router: unownedRouter, omdbId: omdbId)
+            viewController.title = "Details"
             viewController.bind(to: viewModel)
             return .push(viewController, animation: .default)
               
         case .favoriteList:
             let viewController = FavoritesListViewController()
             let viewModel = FavoriteListViewModelImpl(router: unownedRouter)
+            viewController.title = "Favorites"
             viewController.bind(to: viewModel)
             return .push(viewController, animation: .default)
             

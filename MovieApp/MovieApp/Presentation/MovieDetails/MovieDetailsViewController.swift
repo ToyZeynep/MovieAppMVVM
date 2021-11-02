@@ -26,6 +26,9 @@ class MovieDetailsViewController : UIViewController, BindableType, UICollectionV
         override func viewDidLoad() {
 
         }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.tintColor = .black
+    }
 
         func bindViewModel() {
             viewModel.output.name.bind(to: movieDetailsView.movieDetailsNameLabel.rx.text).disposed(by: disposeBag)
