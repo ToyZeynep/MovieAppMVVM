@@ -1,4 +1,3 @@
-![AppLogo](https://user-images.githubusercontent.com/75203610/139675724-40d8567f-ff03-4c9f-9855-40501e412ca1.jpg)
 ### This movie application that I created using [OMDb Api](https://www.omdbapi.com/) is an application where you can search movies by name and bookmark your favorite movies.
 
 # Table of contents
@@ -23,7 +22,6 @@
 - Repeated code blocks recommended for clean coding are combined in flexible methods
 - Pagination structure is used to increase performance on list screens
 - Ability to change list view sizes in Run Time
-- The operations to be done on the project created on Git are divided into branches and the project is completed over the branches
 - Care was taken to ensure that in-app method and variable naming are in English and comprehensible
 
 ## Used Methods and Libraries <a name="UsedMethodsandLibraries"></a>
