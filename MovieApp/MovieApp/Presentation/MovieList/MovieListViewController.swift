@@ -86,11 +86,11 @@ class MovieListViewController: UIViewController, BindableType, UICollectionViewD
                 let favoriteList = RealmHelper.sharedInstance.fetchFavoriteList().map { $0 }
                 if let position = favoriteList.firstIndex(where: {$0.imdbID == model.imdbID}){
                     RealmHelper.sharedInstance.deleteFromDb(movie: favoriteList[position])
-                    AppSnackBar.make(in: self.view, message: "\(model.title!) add to favorites ", duration: .custom(1.0)).show()
+                    AppSnackBar.make(in: self.view, message: "\(model.title!) remove to favorites ", duration: .custom(1.0)).show()
                     cell.movieListCellAddFavoriteButton.backgroundColor = .clear
                 }else{
                     RealmHelper.sharedInstance.addMovieToFavorites(movie: model)
-                    AppSnackBar.make(in: self.view, message: "\(model.title!) remove to favorites", duration: .custom(1.0)).show()
+                    AppSnackBar.make(in: self.view, message: "\(model.title!) add to favorites", duration: .custom(1.0)).show()
                     cell.movieListCellAddFavoriteButton.backgroundColor = .red
                 }
 

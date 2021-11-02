@@ -67,7 +67,7 @@ class FavoritesListViewController : UIViewController, BindableType, UICollection
             cell.favoritesListCellYearLabel.text = model.year
             
             cell.favoritesListCellDeleteFavoriteButton.addTapGesture{
-                AppSnackBar.make(in: self.view, message: "\(model.title!) favorilerden çıkarıldı ", duration: .custom(1.0)).show()
+                AppSnackBar.make(in: self.view, message: "\(model.title!) removed to favorites ", duration: .custom(1.0)).show()
                 RealmHelper.sharedInstance.deleteFromDb(movie: model)
                 self.viewModel.fetchFavoritesList()           
         }
@@ -91,6 +91,6 @@ class FavoritesListViewController : UIViewController, BindableType, UICollection
         let alertAction = UIAlertAction(title: "OK", style: .default) { UIAlertAction in
             self.viewModel.pop()
         }
-        self.alertAction(title: "Success", message: "Clean Favorite List", action: alertAction)
+        self.alertAction(title: "Success", message: "Cleaned Favorite List", action: alertAction)
     }
 }
