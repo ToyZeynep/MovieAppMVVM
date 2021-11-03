@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		188B8735A05CAACD7AE80AAA /* Pods_MovieApp_MovieAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFE3FB1084CAAEB50A94A0D5 /* Pods_MovieApp_MovieAppUITests.framework */; };
+		22521F5727327FCB0085C954 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22521F5627327FCB0085C954 /* SplashViewController.swift */; };
+		22521F5927327FE50085C954 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22521F5827327FE50085C954 /* SplashView.swift */; };
+		22521F5B27327FF40085C954 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22521F5A27327FF40085C954 /* SplashViewModel.swift */; };
+		22521F5D273280090085C954 /* SplashViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22521F5C273280090085C954 /* SplashViewModelImpl.swift */; };
+		22521F5F273280510085C954 /* SplashViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22521F5E273280510085C954 /* SplashViewExt.swift */; };
 		2261954C272A892D00258339 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261954B272A892D00258339 /* AppDelegate.swift */; };
 		2261954E272A892D00258339 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261954D272A892D00258339 /* SceneDelegate.swift */; };
 		22619555272A892F00258339 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22619554272A892F00258339 /* Assets.xcassets */; };
@@ -74,6 +79,11 @@
 
 /* Begin PBXFileReference section */
 		0F688861DBC2AD67B71B7F69 /* Pods-MovieAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MovieAppTests/Pods-MovieAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		22521F5627327FCB0085C954 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		22521F5827327FE50085C954 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		22521F5A27327FF40085C954 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		22521F5C273280090085C954 /* SplashViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModelImpl.swift; sourceTree = "<group>"; };
+		22521F5E273280510085C954 /* SplashViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewExt.swift; sourceTree = "<group>"; };
 		22619548272A892D00258339 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2261954B272A892D00258339 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2261954D272A892D00258339 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,6 +169,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22521F5527327FA20085C954 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				22521F5827327FE50085C954 /* SplashView.swift */,
+				22521F5E273280510085C954 /* SplashViewExt.swift */,
+				22521F5627327FCB0085C954 /* SplashViewController.swift */,
+				22521F5A27327FF40085C954 /* SplashViewModel.swift */,
+				22521F5C273280090085C954 /* SplashViewModelImpl.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
 		2261953F272A892D00258339 = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +240,7 @@
 		2261957B272A967B00258339 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				22521F5527327FA20085C954 /* Splash */,
 				226195C6272AF33000258339 /* FavoriteList */,
 				226195BB272AE52900258339 /* MovieDetails */,
 				226195BA272AE3D900258339 /* MovieList */,
@@ -605,6 +628,7 @@
 				22619585272A9AFC00258339 /* MovieListResponse.swift in Sources */,
 				226195C5272AE5C900258339 /* MovieDetailsViewModelImpl.swift in Sources */,
 				226195C8272AF35B00258339 /* FavoriteListView.swift in Sources */,
+				22521F5B27327FF40085C954 /* SplashViewModel.swift in Sources */,
 				226195A9272ACE0300258339 /* RealmHelper.swift in Sources */,
 				22619597272AB64E00258339 /* MovieListView.swift in Sources */,
 				22AAF242272C60F800C9E135 /* AlertHelper.swift in Sources */,
@@ -613,6 +637,7 @@
 				226195B7272AD13D00258339 /* AppCoordinator.swift in Sources */,
 				226195CE272AF3A300258339 /* FavoriteListViewModel.swift in Sources */,
 				2261959F272AB6C800258339 /* MovieListViewModelImpl.swift in Sources */,
+				22521F5927327FE50085C954 /* SplashView.swift in Sources */,
 				226195CA272AF37000258339 /* FavoriteListViewExt.swift in Sources */,
 				226195C3272AE5B300258339 /* MovieDetailsViewModel.swift in Sources */,
 				226195C1272AE59F00258339 /* MovieDetailsViewController.swift in Sources */,
@@ -637,10 +662,13 @@
 				226195AD272ACE2C00258339 /* ListFlowLayOut.swift in Sources */,
 				2261958A272A9B3E00258339 /* Movie.swift in Sources */,
 				22619595272A9F1500258339 /* ApiEndPoints.swift in Sources */,
+				22521F5F273280510085C954 /* SplashViewExt.swift in Sources */,
 				226195B3272ACE7400258339 /* SnackBar.swift in Sources */,
 				226195A7272ACDD600258339 /* TransitionExtension.swift in Sources */,
 				226195A5272ACAF500258339 /* MovieListCoordinator.swift in Sources */,
 				226195D2272AF41200258339 /* FavoriteListCell.swift in Sources */,
+				22521F5727327FCB0085C954 /* SplashViewController.swift in Sources */,
+				22521F5D273280090085C954 /* SplashViewModelImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

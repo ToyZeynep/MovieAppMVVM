@@ -20,6 +20,7 @@ target 'MovieApp' do
   pod 'RealmSwift'
   pod 'McPicker', '~> 3.0.0'
   pod 'SnackBar.swift'
+  pod 'SwiftGifOrigin'
 
   target 'MovieAppTests' do
     inherit! :search_paths

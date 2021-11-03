@@ -11,23 +11,23 @@ import RxSwift
 import XCoordinator
 
 enum AppRoute: Route {
-    //case splash
+    case splash
     case movieList
 }
 
 class AppCoordinator: NavigationCoordinator<AppRoute> {
     
     init() {
-        super.init(initialRoute: .movieList)
+        super.init(initialRoute: .splash)
     }
     
     override func prepareTransition(for route: AppRoute) -> NavigationTransition {
         switch route {
-   /*     case .splash:
+        case .splash:
             let viewController = SplashViewController()
             let viewModel = SplashViewModelImpl(router: unownedRouter)
             viewController.bind(to: viewModel)
-            return .push(viewController)*/
+            return .push(viewController)
             
         case .movieList:
             let coordinator = MovieListCoordinator()
